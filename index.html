@@ -18,14 +18,23 @@
             font-size: 2em;
             margin-top: 20px;
         }
+        img {
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <h1>Countdown to Our Flight ✈️</h1>
+
+    <!-- Replace 'airplane.png' with the filename of your uploaded image -->
+    <img src="airplane.png" alt="Airplane">
+
     <div id="countdown"></div>
 
     <script>
-        // Your exact flight date and time (local time)
+        // Flight date and time (local time)
         const flightDate = new Date("2026-03-13T16:15:00").getTime();
 
         const countdown = document.getElementById("countdown");
