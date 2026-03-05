@@ -6,21 +6,57 @@
 <style>
 
 body{
-font-family: Arial;
+font-family:Arial;
 text-align:center;
-background:#0b1d2a;
 color:white;
+margin:0;
+padding:0;
+
+/* Milky Way background */
+background-image:url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* dark overlay so text is readable */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
 }
 
 h1{
 font-size:50px;
-margin-top:40px;
+margin-top:60px;
 }
 
 #countdown{
 font-size:40px;
 margin-bottom:40px;
 }
+
+/* airplane animation */
+
+.plane{
+position:fixed;
+top:120px;
+left:-100px;
+font-size:40px;
+animation:fly 25s linear infinite;
+}
+
+@keyframes fly{
+0%{left:-100px;}
+100%{left:110%;}
+}
+
+/* photos */
 
 .photo-grid{
 display:grid;
@@ -43,6 +79,8 @@ opacity:1;
 </head>
 
 <body>
+
+<div class="plane">✈️</div>
 
 <h1>✈️ New Zealand Trip Countdown</h1>
 
@@ -77,9 +115,9 @@ days+" days "+hours+" hours "+minutes+" minutes "+seconds+" seconds";
 },1000);
 
 
-// PHOTO LIST (20 photos)
+// PHOTOS
 
-const photos = [
+const photos=[
 
 "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
 "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
@@ -110,9 +148,8 @@ return photos[Math.floor(Math.random()*photos.length)];
 
 function changePhotos(){
 
-const imgs = document.querySelectorAll(".photo");
+const imgs=document.querySelectorAll(".photo");
 
-// fade out
 imgs.forEach(img=>{
 img.style.opacity=0;
 });
@@ -128,10 +165,8 @@ img.style.opacity=1;
 
 }
 
-// load first photos
 changePhotos();
 
-// change every 10 seconds
 setInterval(changePhotos,10000);
 
 </script>
